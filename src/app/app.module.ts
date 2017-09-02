@@ -14,6 +14,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
 import { HeroSearchComponent } from "app/hero-search.component";
+import { HogeService, Hoge2Service } from "app/hoge.service";
 
 
 @NgModule({
@@ -33,6 +34,8 @@ import { HeroSearchComponent } from "app/hero-search.component";
   ],
   providers: [
     HeroService,
+    HogeService,
+    { provide: Hoge2Service, useValue: new Hoge2Service() }
   ],
   bootstrap: [
     AppComponent,

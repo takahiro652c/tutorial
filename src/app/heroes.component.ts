@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { Hoge2Service } from "app/hoge.service";
+import { Hoge } from "app/hoge";
 
 @Component({
   selector: 'my-heroes',
@@ -11,19 +13,26 @@ import { HeroService } from './hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  hoge: Hoge;
   selectedHero: Hero;
 
   constructor(
     private heroService: HeroService,
     private router: Router,
+    private hoge2Service: Hoge2Service,
   ) { }
 
   getHeroes(): void {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 
+  getHoge(): void {
+    this.hoge = this.hoge2Service.hoge;
+  }
+
   ngOnInit(): void {
     this.getHeroes();
+    this.getHoge();
   }
 
   onSelect(hero: Hero): void {
